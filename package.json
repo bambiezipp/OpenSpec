@@ -1,83 +1,73 @@
 {
-  "name": "@fission-ai/openspec",
-  "version": "1.3.0",
-  "description": "AI-native system for spec-driven development",
-  "keywords": [
-    "openspec",
-    "specs",
-    "cli",
-    "ai",
-    "development"
-  ],
-  "homepage": "https://github.com/Fission-AI/OpenSpec",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Fission-AI/OpenSpec"
-  },
-  "license": "MIT",
-  "author": "OpenSpec Contributors",
-  "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
+  "name": "openspec",
+  "version": "0.1.0",
+  "description": "OpenSpec — An open-source API specification toolkit forked from Fission-AI/OpenSpec",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "bin": {
-    "openspec": "./bin/openspec.js"
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
+  },
+  "keywords": [
+    "openapi",
+    "api",
+    "specification",
+    "openspec",
+    "schema",
+    "typescript"
+  ],
+  "author": "OpenSpec Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/openspec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/openspec/issues"
+  },
+  "homepage": "https://github.com/your-org/openspec#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vitest/coverage-v8": "^1.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.4",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "files": [
     "dist",
-    "bin",
-    "schemas",
-    "scripts/postinstall.js",
-    "!dist/**/*.test.js",
-    "!dist/**/__tests__",
-    "!dist/**/*.map"
-  ],
-  "scripts": {
-    "lint": "eslint src/",
-    "build": "node build.js",
-    "dev": "tsc --watch",
-    "dev:cli": "pnpm build && node bin/openspec.js",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage",
-    "test:postinstall": "node scripts/postinstall.js",
-    "prepare": "pnpm run build",
-    "prepublishOnly": "pnpm run build",
-    "postinstall": "node scripts/postinstall.js",
-    "check:pack-version": "node scripts/pack-version-check.mjs",
-    "release": "pnpm run release:ci",
-    "release:ci": "pnpm run check:pack-version && pnpm exec changeset publish",
-    "changeset": "changeset"
-  },
-  "engines": {
-    "node": ">=20.19.0"
-  },
-  "devDependencies": {
-    "@changesets/changelog-github": "^0.5.2",
-    "@changesets/cli": "^2.27.7",
-    "@types/node": "^24.2.0",
-    "@vitest/ui": "^3.2.4",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1",
-    "vitest": "^3.2.4"
-  },
-  "dependencies": {
-    "@inquirer/core": "^10.2.2",
-    "@inquirer/prompts": "^7.8.0",
-    "chalk": "^5.5.0",
-    "commander": "^14.0.0",
-    "fast-glob": "^3.3.3",
-    "ora": "^8.2.0",
-    "posthog-node": "^5.20.0",
-    "yaml": "^2.8.2",
-    "zod": "^4.0.17"
-  }
+    "README.md",
+    "LICENSE"
+  ]
 }
