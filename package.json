@@ -42,9 +42,9 @@
     "url": "https://github.com/your-org/openspec.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/openspec/issues"
+    "url": "https://github.com/Fission-AI/OpenSpec/issues"
   },
-  "homepage": "https://github.com/your-org/openspec#readme",
+  "homepage": "https://github.com/Fission-AI/OpenSpec#readme",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "@types/node": "^20.11.5",
