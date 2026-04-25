@@ -69,5 +69,8 @@
     "dist",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "volta": {
+    "node": "20.11.0"
+  }
 }
