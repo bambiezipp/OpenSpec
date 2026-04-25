@@ -72,5 +72,6 @@
   ],
   "volta": {
     "node": "20.11.0"
-  }
+  },
+  "_note": "Personal fork for learning — upstream: https://github.com/Fission-AI/OpenSpec"
 }
